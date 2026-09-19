@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coaching Pokémon Unite — Réservation gratuite</title>
+  <meta name="description" content="Réserve gratuitement une séance d'une heure de coaching Pokémon Unite.">
+  <style>
+    :root{--bg:#0b1020;--card:#121a31;--accent:#ffd43b;--accent2:#5ee7df;--text:#f7f8fc;--muted:#aab3ca}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:linear-gradient(135deg,#0b1020,#172554);color:var(--text)}
+    .wrap{max-width:1050px;margin:auto;padding:28px 18px 60px}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:10px 0 35px}
+    .logo{font-weight:900;font-size:1.15rem}.pill{background:#ffffff12;border:1px solid #ffffff20;padding:8px 13px;border-radius:999px;color:#fff}
+    .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;padding:35px 0 45px}
+    h1{font-size:clamp(2.4rem,6vw,5rem);line-height:.98;margin:0 0 20px}
+    h1 span{color:var(--accent)} p{color:var(--muted);font-size:1.08rem;line-height:1.65}
+    .cta{display:inline-block;margin-top:18px;background:var(--accent);color:#161616;text-decoration:none;font-weight:800;padding:15px 20px;border-radius:14px}
+    .card{background:#ffffff0c;border:1px solid #ffffff18;border-radius:24px;padding:24px;box-shadow:0 18px 60px #0005}
+    .badge{font-size:3.5rem;text-align:center;padding:25px 0}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:10px 0 40px}
+    .feature{background:var(--card);padding:20px;border-radius:18px}.feature b{display:block;margin-bottom:7px}
+    section{scroll-margin-top:20px} h2{font-size:2rem;margin:15px 0}
+    form{display:grid;gap:14px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    label{font-weight:700;font-size:.92rem} input,select,textarea{width:100%;margin-top:7px;padding:13px;border-radius:12px;border:1px solid #ffffff25;background:#0b1020;color:white;font:inherit}
+    textarea{min-height:90px;resize:vertical}.submit{border:0;background:var(--accent);padding:15px;border-radius:12px;font-weight:900;cursor:pointer;font-size:1rem}
+    .notice{display:none;margin-top:15px;padding:15px;border-radius:12px;background:#1f7a55;color:#fff}.small{font-size:.88rem;color:var(--muted)}
+    footer{text-align:center;color:var(--muted);padding-top:35px}
+    @media(max-width:750px){.hero{grid-template-columns:1fr}.features,.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <nav><div class="logo">⚡ UNITE COACHING</div><div class="pill">100% gratuit • 1 heure</div></nav>
+
+  <main>
+    <div class="hero">
+      <div>
+        <div class="pill" style="display:inline-block">🎮 Coaching personnalisé</div>
+        <h1>Progresse sur <span>Pokémon Unite.</span></h1>
+        <p>Une séance individuelle gratuite d'une heure pour analyser ton jeu, travailler tes erreurs et t'aider à mieux jouer ton rôle.</p>
+        <a class="cta" href="#reservation">Réserver ma séance →</a>
+      </div>
+      <div class="card">
+        <div class="badge">🏆</div>
+        <h2>Une heure avec un coach</h2>
+        <p>Choisis ton créneau et indique ton pseudo. La réservation ne coûte rien.</p>
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="feature"><b>🎯 Analyse</b><span class="small">On regarde tes habitudes de jeu et les points à améliorer.</span></div>
+      <div class="feature"><b>🧠 Conseils</b><span class="small">Des conseils adaptés à ton niveau et à ton rôle.</span></div>
+      <div class="feature"><b>🚀 Objectif</b><span class="small">Repars avec des axes de travail concrets.</span></div>
+    </div>
+
+    <section id="reservation" class="card">
+      <h2>Réserver gratuitement</h2>
+      <p>La séance dure exactement <strong>1 heure</strong>.</p>
+      <form id="booking">
+        <div class="grid">
+          <div><label>Prénom / pseudo<input name="name" required placeholder="Ton pseudo"></label></div>
+          <div><label>Email<input type="email" name="email" required placeholder="toi@email.com"></label></div>
+        </div>
+        <div class="grid">
+          <div><label>Date<input type="date" name="date" id="date" required></label></div>
+          <div><label>Heure<select name="time" required>
+            <option value="">Choisir une heure</option>
+            <option>10:00</option><option>11:00</option><option>12:00</option>
+            <option>13:00</option><option>14:00</option><option>15:00</option>
+            <option>16:00</option><option>17:00</option><option>18:00</option>
+            <option>19:00</option><option>20:00</option>
+          </select></label></div>
+        </div>
+        <div class="grid">
+          <div><label>Ton rôle principal<select name="role">
+            <option>Top</option><option>Jungle</option><option>Central</option><option>Bot</option><option>Support</option><option>Je ne sais pas</option>
+          </select></label></div>
+          <div><label>Ton niveau / rang<input name="rank" placeholder="Ex. Ultra 3"></label></div>
+        </div>
+        <label>Ce que tu veux travailler<textarea name="goal" placeholder="Ex. mieux jouer la jungle, améliorer mes rotations..."></textarea></label>
+        <button class="submit" type="submit">Confirmer ma demande de réservation</button>
+        <div class="notice" id="notice"></div>
+        <div class="small">En envoyant ce formulaire, tu demandes un créneau de coaching gratuit. Une confirmation doit être envoyée par le coach.</div>
+      </form>
+    </section>
+  </main>
+
+  <footer>© 2026 Unite Coaching • Coaching gratuit d'1 heure</footer>
+</div>
+
+<script>
+  const date = document.querySelector('#date');
+  const today = new Date();
+  date.min = today.toISOString().split('T')[0];
+
+  document.querySelector('#booking').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target));
+    const notice = document.querySelector('#notice');
+
+    // Démo locale : les demandes sont conservées dans le navigateur.
+    const bookings = JSON.parse(localStorage.getItem('uniteBookings') || '[]');
+    bookings.push({...data, createdAt: new Date().toISOString()});
+    localStorage.setItem('uniteBookings', JSON.stringify(bookings));
+
+    notice.style.display = 'block';
+    notice.innerHTML = `✅ Demande enregistrée pour <strong>${data.date}</strong> à <strong>${data.time}</strong>.<br>
+      Le coach doit maintenant confirmer le créneau.`;
+    e.target.reset();
+    date.min = today.toISOString().split('T')[0];
+  });
+</script>
+</body>
+</html>
